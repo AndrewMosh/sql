@@ -14,19 +14,19 @@ WHERE departure_airport = 'VKO'
 --4 использовать как AND так и OR в одном условии.
 SELECT flight_id, flight_no
 FROM flights
-WHERE departure_airport = 'VKO' AND (arrival_airport = 'SVO' OR arrival_airport = 'DME');
+WHERE departure_airport = 'DME' AND (arrival_airport = 'LED' OR arrival_airport = 'KZN');
 
 
 --5
 SELECT  departure_airport, flight_no
 FROM flights
-WHERE arrival_airport IN ('SVO', 'DME', 'VKO')
+WHERE arrival_airport IN ('SVO', 'LED', 'KZN')
 
 --6
 SELECT seat_no, aircraft_code, fare_conditions
 FROM seats
-WHERE seat_no
-BETWEEN '5' AND '10'; 
+WHERE aircraft_code
+BETWEEN '319' AND '320'; 
 
 --7
 SELECT aircraft_code, model
@@ -93,7 +93,9 @@ ALTER TABLE mytable
 DROP INDEX mytable_ind;
 
 -- получение описания структуры таблицы
-\d mytable
+SELECT column_name, data_type, is_nullable
+FROM information_schema.columns
+WHERE table_name = 'mytable';
 
 -- очистка таблицы
 TRUNCATE TABLE mytable;
