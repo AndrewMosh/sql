@@ -72,7 +72,7 @@ ORDER BY day_of_week;
 -----
 
 -- создание таблицы, не менее 4х колонок разного типа,1 колонка первичный ключ, одна необнуляймая
-CREATE TABLE myTable (
+CREATE TABLE mytable (
   col1 SERIAL,
   col2 INT,
   col3 VARCHAR(5),
@@ -82,37 +82,37 @@ CREATE TABLE myTable (
 
 
 -- удаление таблицы
-DROP TABLE myTable;
+DROP TABLE mytable;
 
 -- создание индекса
-CREATE UNIQUE INDEX myTable_ind
-ON test (col1);
+CREATE UNIQUE INDEX mytable_ind
+ON myTable (col1);
 
 -- удаление индекса
-ALTER TABLE myTable
-DROP INDEX myTable_ind;
+ALTER TABLE mytable
+DROP INDEX mytable_ind;
 
 -- получение описания структуры таблицы
-DESC myTable;
+\d mytable
 
 -- очистка таблицы
-TRUNCATE TABLE myTable;
+TRUNCATE TABLE mytable;
 
 -- выбрать одно из вариантов: добавление/удаление/модификация колонок
-ALTER TABLE myTable ADD col5 DATE;
+ALTER TABLE mytable ADD col5 DATE;
 
 -- переименование таблицы
-ALTER TABLE myTable RENAME TO yourTable;
+ALTER TABLE mytable RENAME TO yourtable;
 
 -- вставка значений
-INSERT INTO myTable (col2, col3, col4, col5)
+INSERT INTO mytable (col2, col3, col4, col5)
 VALUES (30, 'test', 'this is my table', '2024-12-16 11:11:11');
 
 -- обновление записей
-UPDATE myTable 
+UPDATE mytable 
 SET col2 = 768, col3 = 'test2', col4 = 'test3', col5 = '2025-01-01 00:00:00'
 WHERE col2 = 30;
 
 -- удаление записей
-DELETE FROM myTable 
+DELETE FROM mytable 
 WHERE col2 = 768;
