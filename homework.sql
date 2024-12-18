@@ -86,10 +86,9 @@ DROP TABLE mytable;
 
 -- создание индекса
 CREATE UNIQUE INDEX mytable_ind
-ON myTable (col1);
+ON mytable (col1);
 
 -- удаление индекса
-ALTER TABLE mytable
 DROP INDEX mytable_ind;
 
 -- получение описания структуры таблицы
